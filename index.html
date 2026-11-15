@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 教育科技展紀錄</title>
+  <meta name="description" content="2026 教育科技展現場紀錄：Apple 傑出學校、無人機展區、當AI走進教室、AI之上。">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- 頂部列 + 漢堡選單按鈕 -->
+<header class="topbar">
+  <button class="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu" aria-label="開啟單元選單">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="brand" href="#home" data-go="home">2026 教育科技展紀錄</a>
+  <span class="unit-indicator" id="unitIndicator">01 / 06</span>
+</header>
+
+<!-- 漢堡選單（側邊抽屜） -->
+<div class="offcanvas offcanvas-start menu-panel" tabindex="-1" id="menu" aria-labelledby="menuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="menuLabel">單元選單</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="關閉"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="menu-list" id="menuList"></nav>
+  </div>
+</div>
+
+<main id="app">
+
+  <!-- 單元 1：首頁 -->
+  <section class="unit active" id="home" data-title="首頁" data-icon="bi-house-door">
+    <div class="hero">
+      <div class="container">
+        <p class="eyebrow">dTech Taiwan · 2026</p>
+        <h1>2026 教育科技展<br><span>現場紀錄</span></h1>
+        <p class="lead">講座與展區一次看完，這一天的學習與觀察都在這裡。<br>點選左上角選單，快速切換單元。</p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center mt-4">
+          <button class="btn btn-light btn-lg px-4" data-go="lecture-edu">從講座開始 <i class="bi bi-arrow-right"></i></button>
+          <button class="btn btn-outline-light btn-lg px-4" data-bs-toggle="offcanvas" data-bs-target="#menu">打開選單</button>
+        </div>
+      </div>
+    </div>
+    <div class="container py-5">
+      <h2 class="section-title">本站單元</h2>
+      <div class="row g-3" id="homeCards"></div>
+      <div class="note mt-4">
+        <i class="bi bi-info-circle"></i>
+        內容整理自現場拍攝的簡報與展板照片。照片中文字由影像辨識整理，若有錯字，請以現場原稿為準。
+      </div>
+    </div>
+  </section>
+
+  <!-- 單元 2：當AI走進教室 -->
+  <section class="unit" id="lecture-edu" data-title="當AI走進教室" data-icon="bi-mortarboard">
+    <div class="unit-head">
+      <div class="container">
+        <span class="tag">講座</span>
+        <h2>當AI走進教室：我和學生的 e 度學習日常</h2>
+        <p>教育部「學生 e 度」學習夥伴，如何讓學生先思考、再與 AI 對話。</p>
+        <a class="btn btn-light nlm-btn" href="https://notebook.google.com/notebook/8dc57f20-fff4-4b2f-9f22-a0e99d636e33" target="_blank" rel="noopener"><i class="bi bi-journal-text"></i> NotebookLM 講座整理 <i class="bi bi-box-arrow-up-right"></i></a>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <h3 class="sub">核心觀點</h3>
+          <div class="callout">
+            <strong>AI 幫忙完成，不等於學生真正學會。</strong>
+            通用型 AI 缺少學習引導時，可能讓學生更快完成任務，卻減少自己思考與練習的機會。教育型 AI 則透過提示、追問與回饋，保留學生參與思考的過程。
+            <div class="mt-2 small">結論：國小學生使用 AI，應優先選擇適齡、有學習引導與教師支持的教育型 AI。</div>
+          </div>
+
+          <h3 class="sub mt-4">課堂情境案例</h3>
+          <div class="accordion" id="accEdu">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#e1">理財：e 度提供建議，我來決定怎麼做</button></h2>
+              <div id="e1" class="accordion-collapse collapse show" data-bs-parent="#accEdu"><div class="accordion-body">
+                學生把課本的理財概念連到自己的生活。想買演唱會門票的學生，與 e 度討論目標（約 9,700 元），e 度建議減少點心飲料、幫忙做家事賺小獎金；學生自己規劃每週存 300 元、約 8 個月達成，並檢查金額、時間與能否做到。另一組學生決定把紅包錢存進銀行，因為有利息又比較安全。
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e2">消費情境大挑戰：和 e 度一起想清楚</button></h2>
+              <div id="e2" class="accordion-collapse collapse" data-bs-parent="#accEdu"><div class="accordion-body">
+                各組抽到不同情境，例如「收到商品跟網站寫的不一樣」、「超便宜盒真的能放心買嗎」。提示詞刻意要求 e 度「不要直接告訴我答案，先幫我想想該先確認哪些事」。流程為：自己先想、各自問 e 度、組內分享、重新表達。
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e3">防詐：客服催我重新付款，我怎麼判斷？</button></h2>
+              <div id="e3" class="accordion-collapse collapse" data-bs-parent="#accEdu"><div class="accordion-body">
+                情境是自稱客服的訊息要求 30 分鐘內重新付款。學生原本覺得怪怪的，先想確認付款是否成功；e 度提醒不點連結、不填資料，可打 165 詢問；學生最後決定撥打反詐騙專線 165。
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e4">社會：多問一步，想法就多展開一點</button></h2>
+              <div id="e4" class="accordion-collapse collapse" data-bs-parent="#accEdu"><div class="accordion-body">
+                以日治時期的警察制度為題。學生先說出治安更好、注重衛生、思想管制等想法，e 度再追問警察是否也管很多其他事、是否讓人民覺得不自由，引導學生把想法展開。
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e5">AI 錯題診療室：先找出自己卡在哪裡</button></h2>
+              <div id="e5" class="accordion-collapse collapse" data-bs-parent="#accEdu"><div class="accordion-body">
+                流程為：回看錯題、判斷錯因、向 e 度提問、重新解釋、類似題再挑戰。案例中，學生把「少用包裝」看成「多一個袋子」，經過提問後能用自己的話說明：少一個袋子，海洋動物就不會吃到垃圾，可以保護環境，並再挑戰一題類似題。
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e6">教師後台：打開後台，看見學生怎麼想</button></h2>
+              <div id="e6" class="accordion-collapse collapse" data-bs-parent="#accEdu"><div class="accordion-body">
+                透過教育部因材網的「AI 學習夥伴報表」，教師可以看到每位學生的學習狀態、對談內容與影片瀏覽，從學生與 AI 的對話中掌握他們的思考與迷思。
+              </div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <h3 class="sub">講座錄音</h3>
+          <div class="audio-card">
+            <div class="audio-title"><i class="bi bi-mic"></i> 教育部－學生 e 度</div>
+            <iframe class="audio-frame" src="https://drive.google.com/file/d/1WFhAf7n1fb1oFU-mVY8bF3wCeiNMEKyy/preview" allow="autoplay" loading="lazy" title="教育部-學生e度 錄音"></iframe>
+            <p class="small text-muted mb-0">錄音由雲端硬碟播放器載入，需有檢視權限。</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub mt-5">簡報照片</h3>
+      <div class="gallery" data-gallery="edu"></div>
+    </div>
+  </section>
+
+  <!-- 單元 3：AI之上 -->
+  <section class="unit" id="lecture-ai" data-title="AI之上" data-icon="bi-lightbulb">
+    <div class="unit-head alt">
+      <div class="container">
+        <span class="tag">講座</span>
+        <h2>AI之上：當答案變得廉價，定義問題的人開始掌握未來</h2>
+        <p>答案越來越容易取得，真正的差異在於：誰來決定問什麼、怎麼問、什麼值得追求。</p>
+        <a class="btn btn-light nlm-btn" href="https://notebook.google.com/notebook/065282e5-93ed-4555-875b-74ac399cc290" target="_blank" rel="noopener"><i class="bi bi-journal-text"></i> NotebookLM 講座整理 <i class="bi bi-box-arrow-up-right"></i></a>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <h3 class="sub">講座脈絡</h3>
+          <div class="timeline">
+            <div class="tl-item"><span class="tl-no">1</span><div>
+              <h4>AI 已參與大量決策</h4>
+              <p>從選筆電、投廣告、該不該轉職，到學生用 AI 寫作業怎麼辦，人們把越來越多問題丟給 AI。AI 會幫我們找理由、找資料、列方案，也可能放大既有的世界觀與焦慮；若問題沒被檢查，就可能讓錯誤的目標被順利執行。</p>
+            </div></div>
+            <div class="tl-item"><span class="tl-no">2</span><div>
+              <h4>為什麼 AI 的回答會走向不同方向？</h4>
+              <p>三個原因：提示敏感性（問法或前提改變，方向就改變）、生成變異（同一問題也可能得到不同回答）、對話的路徑依賴（先前內容會影響後續回應）。不同答案不代表其中一個更正確，可以停下來重問。</p>
+            </div></div>
+            <div class="tl-item"><span class="tl-no">3</span><div>
+              <h4>AI 答案隱藏的權力結構</h4>
+              <p>以地方停車問題、餐廳經營方向、「生意變差」下不同 AI 給出不同切入點為例，說明四種影響力：話語權、問題框定、影響力、定義權。「什麼叫成功？什麼值得優先？」本身就是一種權力。</p>
+            </div></div>
+            <div class="tl-item"><span class="tl-no">4</span><div>
+              <h4>提問是一種假設</h4>
+              <p>例如「學生越來越依賴 AI，怎麼讓他們恢復獨立思考？」已經預設了原因、價值與責任歸屬。假設來自眼前的觀察、知識經驗、價值期待、情緒處境、既有語言分類，以及制度與工作要求。</p>
+            </div></div>
+            <div class="tl-item"><span class="tl-no">5</span><div>
+              <h4>能力金字塔 L1–L5</h4>
+              <p>由下而上為認知 AI、人類參與決策、問題框定、後設認知、定義權。思考範圍逐步擴大，使用時可以在各層之間來回移動，不需要逐級通過。</p>
+            </div></div>
+            <div class="tl-item"><span class="tl-no">6</span><div>
+              <h4>三種重新看見</h4>
+              <p>重新發現價值、重新創造選擇、重新理解自己。重點不是人與 AI 的競爭，而是回到思考、選擇與價值的起點。</p>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <h3 class="sub">能力金字塔</h3>
+          <div class="pyramid">
+            <div class="py-level l5"><b>L5</b> Definition Power 定義權<small>決定目的、價值與值得追求的方向</small></div>
+            <div class="py-level l4"><b>L4</b> Meta Cognition 後設認知<small>看見自己的知識、情緒與假設</small></div>
+            <div class="py-level l3"><b>L3</b> Problem Framing 問題框定<small>檢查命名、因果推測與問題範圍</small></div>
+            <div class="py-level l2"><b>L2</b> Human-in-the-loop 人類參與<small>安排人與 AI 的分工、保留審核</small></div>
+            <div class="py-level l1"><b>L1</b> Cognitive AI 認知 AI<small>理解工具的能力、限制與輸出條件</small></div>
+          </div>
+
+          <div class="callout mt-4">
+            <strong>案例：校園午餐浪費報告</strong>
+            學生用 AI 整理「減少剩菜」方法，經訪談發現可能與份量、菜色、排隊取餐時間有關；老師要求區分資料來源與個人推測，學生因此重新判斷，把問題改為「如何減少廚餘，同時吃飽並符合營養需求」。
+          </div>
+
+          <h3 class="sub mt-4">講座錄音</h3>
+          <div class="audio-card">
+            <div class="audio-title"><i class="bi bi-mic"></i> AI之上：講座錄音</div>
+            <iframe class="audio-frame" src="https://drive.google.com/file/d/1cIEE6z5m5yMBA4TcanIfeL2ggbFvb4h1/preview" allow="autoplay" loading="lazy" title="AI之上 錄音"></iframe>
+            <p class="small text-muted mb-0">錄音由雲端硬碟播放器載入，需有檢視權限。</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub mt-5">能力可應用的八個領域</h3>
+      <div class="row g-2 chips">
+        <div class="col-6 col-md-3"><div class="chip">教育工作者</div></div>
+        <div class="col-6 col-md-3"><div class="chip">行銷與品牌</div></div>
+        <div class="col-6 col-md-3"><div class="chip">工程與營運</div></div>
+        <div class="col-6 col-md-3"><div class="chip">金融與保險</div></div>
+        <div class="col-6 col-md-3"><div class="chip">企業管理</div></div>
+        <div class="col-6 col-md-3"><div class="chip">軟體與產品開發</div></div>
+        <div class="col-6 col-md-3"><div class="chip">醫療與服務</div></div>
+        <div class="col-6 col-md-3"><div class="chip">政府與公共服務</div></div>
+      </div>
+
+      <h3 class="sub mt-5">簡報照片</h3>
+      <div class="gallery" data-gallery="ai"></div>
+    </div>
+  </section>
+
+  <!-- 單元 4：Apple 傑出學校 -->
+  <section class="unit" id="apple" data-title="Apple 傑出學校" data-icon="bi-apple">
+    <div class="unit-head apple">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>Apple 傑出學校 ADS：讓創新學習，在校園發生</h2>
+        <p>以「啟發力、想像力、影響力」為主軸，展出六所學校的教學故事。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="row g-3 mb-2">
+        <div class="col-md-4"><div class="pillar"><i class="bi bi-compass"></i><h4>啟發力</h4><p>清楚的學習願景，引導師生前進。</p></div></div>
+        <div class="col-md-4"><div class="pillar"><i class="bi bi-palette"></i><h4>想像力</h4><p>支持每位學習者探索與創造。</p></div></div>
+        <div class="col-md-4"><div class="pillar"><i class="bi bi-globe-asia-australia"></i><h4>影響力</h4><p>讓學習連結真實世界。</p></div></div>
+      </div>
+
+      <h3 class="sub mt-4">六所學校的教學故事</h3>
+      <div class="row g-3" id="schoolCards"></div>
+
+      <h3 class="sub mt-5">互動體驗：課前任務卡</h3>
+      <div class="callout">
+        展區提供 iPad 體驗卡，示範用 Padlet Arcade 設計課前預習：教師把預習內容做成互動挑戰，學生在 Safari 開啟活動、答題、檢視結果、重答不熟的題目，再用「備忘錄」記下想深入的問題。
+      </div>
+
+      <h3 class="sub mt-5">展區照片</h3>
+      <div class="gallery" data-gallery="apple"></div>
+    </div>
+  </section>
+
+  <!-- 單元 5：無人機 -->
+  <section class="unit" id="drone" data-title="無人機展區" data-icon="bi-airplane">
+    <div class="unit-head drone">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>無人機展區</h2>
+        <p>從遙控操作模式到飛行原理，認識無人機如何飛起來。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h3 class="sub">操作手：美國手與日本手</h3>
+          <div class="callout">
+            展板介紹遙控器的兩種操作模式。早期採用這類操作的航模玩家，集中在美國，所以稱為「美國手」，日本也有對應的「日本手」。因為「美國手」入門較簡單，多用於教學。
+            <div class="mt-2 small">展板上標示的操作包含：油門、升降舵、升降、上升、向前。</div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="sub">飛行原理</h3>
+          <div class="callout">
+            展板說明：無人機的四個螺旋槳馬達同時高速轉動，讓機身能夠飛高，並保持飛行器的平衡。
+          </div>
+        </div>
+      </div>
+      <h3 class="sub mt-5">展區照片</h3>
+      <div class="gallery" data-gallery="drone"></div>
+    </div>
+  </section>
+
+  <!-- 單元：沐霖互動實境 -->
+  <section class="unit" id="mulin" data-title="沐霖互動實境" data-icon="bi-badge-vr">
+    <div class="unit-head c1">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>沐霖互動實境有限公司</h2>
+        <p>融合 AI、AR、VR、MR 的互動科技。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="callout">
+        沐霖互動實境有限公司是一家專注於融合 AI 智慧、AR（擴增實境）、VR（虛擬實境）與 MR（混合實境）等互動科技的台灣企業。
+      </div>
+      <div class="row g-2 chips mt-3">
+        <div class="col-6 col-md-3"><div class="chip">AI 智慧</div></div>
+        <div class="col-6 col-md-3"><div class="chip">AR 擴增實境</div></div>
+        <div class="col-6 col-md-3"><div class="chip">VR 虛擬實境</div></div>
+        <div class="col-6 col-md-3"><div class="chip">MR 混合實境</div></div>
+      </div>
+      <h3 class="sub mt-5">展區照片</h3>
+      <div class="gallery" data-gallery="mulin"></div>
+    </div>
+  </section>
+
+  <!-- 單元：PLAUD AI 筆記 -->
+  <section class="unit" id="plaud" data-title="PLAUD AI 筆記" data-icon="bi-mic">
+    <div class="unit-head c2">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>PLAUD：首屈一指的 AI 筆記工具</h2>
+        <p>把會議、通話與訪談，變成可搜尋的逐字稿與重點摘要。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="callout">
+        PLAUD 是目前備受矚目的 AI 智慧錄音與筆記工具品牌，旗艦代表作如 Plaud Note Pro 與穿戴式 Plaud NotePin S，專為會議記錄、通話錄音與訪談內容打造。
+      </div>
+      <h3 class="sub mt-4">核心特色與功能</h3>
+      <div class="row g-3">
+        <div class="col-md-6"><div class="pillar text-start"><i class="bi bi-credit-card-2-front"></i><h4>極致輕薄設計</h4><p>信用卡大小的 AI 錄音卡或輕巧膠囊外型，磁吸貼在手機背面或隨身佩戴，不干擾日常操作。</p></div></div>
+        <div class="col-md-6"><div class="pillar text-start"><i class="bi bi-arrow-left-right"></i><h4>雙模式自動切換</h4><p>支援面對面談話與電話通話錄音，收音範圍可達 3 至 5 公尺。</p></div></div>
+        <div class="col-md-6"><div class="pillar text-start"><i class="bi bi-translate"></i><h4>多語系 AI 轉錄與摘要</h4><p>支援超過 112 種語言（含中文、台語、英文等），自動產出逐字稿、發言者標記、時間軸與多維度會議重點摘要。</p></div></div>
+        <div class="col-md-6"><div class="pillar text-start"><i class="bi bi-diagram-3"></i><h4>多模態與多平台整合</h4><p>可搭配 Plaud App／電腦版同步，並串聯 Notion、Slack、Teams 或 Google 日曆等工作流程。</p></div></div>
+      </div>
+      <div class="callout mt-3">
+        <strong>方案選項</strong>
+        提供免費 Starter 方案（每月 300 分鐘），以及付費的 Pro 與無限量方案。
+      </div>
+      <a class="btn btn-primary nlm-btn" href="https://tw.plaud.ai/pages/app-download" target="_blank" rel="noopener"><i class="bi bi-download"></i> Plaud App／電腦版下載 <i class="bi bi-box-arrow-up-right"></i></a>
+      <h3 class="sub mt-5">現場展場</h3>
+      <div class="gallery" data-gallery="plaud"></div>
+      <h3 class="sub mt-5">產品參考</h3>
+      <div class="gallery" data-gallery="plaudref"></div>
+    </div>
+  </section>
+
+  <!-- 單元：啟思創客 ThinkMaker -->
+  <section class="unit" id="thinkmaker" data-title="啟思創客 ThinkMaker" data-icon="bi-code-slash">
+    <div class="unit-head c3">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>啟思創客 ThinkMaker</h2>
+        <p>國小 4–6 年級的 AI 程式創作訓練營：不只會用 AI，更會驗收與判斷 AI。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="callout">
+        啟思創客 ThinkMaker 是一個專為國小 4–6 年級孩子設計的 AI 程式創作訓練營，主打「不只會用 AI，更會驗收與判斷 AI」。
+      </div>
+      <h3 class="sub mt-4">核心特色與教學理念</h3>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-no">1</span><div><h4>學習對象</h4><p>國小 4–6 年級，零基礎可參加。</p></div></div>
+        <div class="tl-item"><span class="tl-no">2</span><div><h4>教學重點</h4><p>不只教孩子怎麼使喚 AI 寫程式，更著重培養邏輯拆解能力，教導孩子「看懂 AI、判斷 AI 說得對不對、指揮 AI 做出自己的作品」。</p></div></div>
+        <div class="tl-item"><span class="tl-no">3</span><div><h4>成果導向</h4><p>每一堂課或階段都會讓孩子親手做出實體或數位作品（例如自己發想的遊戲），並提供作品分享連結，家長用手機點開就能直接遊玩和驗收。</p></div></div>
+        <div class="tl-item"><span class="tl-no">4</span><div><h4>課程安排</h4><p>主要教基礎程式語法，不會太深入，教完之後交給 AI coding。</p></div></div>
+      </div>
+      <a class="btn btn-primary nlm-btn" href="https://www.accupass.com/event/2609281150365966411220" target="_blank" rel="noopener"><i class="bi bi-ticket-perforated"></i> 活動報名頁 <i class="bi bi-box-arrow-up-right"></i></a>
+      <h3 class="sub mt-5">展場照片</h3>
+      <div class="gallery" data-gallery="thinkmaker"></div>
+    </div>
+  </section>
+
+  <!-- 單元：Meta 青少年社群安全 -->
+  <section class="unit" id="meta" data-title="Meta 青少年社群安全" data-icon="bi-shield-check">
+    <div class="unit-head c4">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>Meta 青少年社群安全</h2>
+        <p>透過預設防護與家長監護工具，打造更安全、適齡的社群使用環境。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="callout">
+        這面展示牆介紹 Meta「青少年帳號（Teen Accounts）」安全機制，重點在於透過系統預設的防護設定與家長監護工具，為青少年打造更安全、適齡的社群使用環境。
+      </div>
+      <h3 class="sub mt-4">1. 全面覆蓋四大平台</h3>
+      <div class="row g-2 chips">
+        <div class="col-6 col-md-3"><div class="chip">Facebook</div></div>
+        <div class="col-6 col-md-3"><div class="chip">Instagram</div></div>
+        <div class="col-6 col-md-3"><div class="chip">Threads</div></div>
+        <div class="col-6 col-md-3"><div class="chip">Messenger</div></div>
+      </div>
+      <p class="text-muted mt-2 mb-0">展板標示「現已全面登上四大平台」，青少年在這四個平台上，都能享有統一的預設安全防護與隱私標準。</p>
+      <h3 class="sub mt-4">2. 三大內建保護機制</h3>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="pillar text-start"><i class="bi bi-people"></i><h4>聯繫對象</h4><p>預設將帳號設為不公開，並限制陌生人傳送私訊、標註或提及，只有已追蹤或認識的人能與青少年互動，降低網路騷擾與陌生人接觸的風險。</p></div></div>
+        <div class="col-md-4"><div class="pillar text-start"><i class="bi bi-moon-stars"></i><h4>使用時間</h4><p>內建「每日使用時間提醒」，以及夜間「睡眠模式」（自動靜音通知並開啟訊息自動回覆），協助建立健康作息、避免熬夜滑手機。</p></div></div>
+        <div class="col-md-4"><div class="pillar text-start"><i class="bi bi-eye-slash"></i><h4>觀看內容</h4><p>預設套用較嚴格的內容控管，自動過濾暴力、成人或不適齡的敏感貼文，並封鎖特定敏感關鍵字的搜尋結果。</p></div></div>
+      </div>
+      <h3 class="sub mt-4">3. 家長監護功能與《家長指南》</h3>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-no">1</span><div><h4>共同打造適齡體驗</h4><p>家長可依家庭需求啟用監護工具，例如查看孩子的聯繫對象、設定每日使用上限、鎖定特定時段無法使用，在不查看私訊內容的前提下掌握安全狀況。</p></div></div>
+        <div class="tl-item"><span class="tl-no">2</span><div><h4>設定變更需經同意</h4><p>依展板備註，未滿 16 歲的青少年若想調低或放寬預設的安全限制，必須經過家長同意。</p></div></div>
+        <div class="tl-item"><span class="tl-no">3</span><div><h4>掃碼下載《家長指南》</h4><p>展板右下角提供 QR Code，家長可掃描下載指南，了解各平台監護工具的操作步驟，以及與孩子溝通網路安全的建議。</p></div></div>
+      </div>
+      <h3 class="sub mt-5">展場照片</h3>
+      <div class="gallery" data-gallery="meta"></div>
+    </div>
+  </section>
+
+  <!-- 單元：淨零綠生活大聯盟 -->
+  <section class="unit" id="moenv" data-title="淨零綠生活大聯盟" data-icon="bi-recycle">
+    <div class="unit-head c5">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>環境部：淨零綠生活大聯盟</h2>
+        <p>企業跨界合作的減碳與循環經濟案例。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="callout">
+        三張展板呈現環境部「淨零綠生活大聯盟」中，企業跨界合作的減碳與循環經濟案例。
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-lg-4"><div class="school">
+          <div class="loc">案例 1　零售封閉式循環再生</div>
+          <h4>全家便利商店 × picupi 挑品</h4>
+          <div class="slogan">廢牛奶瓶，變回店裡的清潔商品</div>
+          <ul>
+            <li>合作模式：全家提供店內業務用的廢棄牛奶瓶，透過約 4,500 間門市的逆向物流回收；picupi 挑品再製為 100% 再生塑料瓶器，並結合花蓮壽豐的廢棄黃金蜆殼，開發清潔商品重返全家貨架販售。</li>
+            <li>成果：累計生產超過 3.6 萬件再生塑料瓶器，使用逾 2 公噸再生塑料，相較原生塑膠減碳約 75%（累計約 3,429 公斤）。</li>
+          </ul>
+        </div></div>
+        <div class="col-lg-4"><div class="school">
+          <div class="loc">案例 2　企業差旅減碳移動</div>
+          <h4>華碩電腦 × ZEMO 零邁移動</h4>
+          <div class="slogan">讓範疇三的差旅碳排可以被計算</div>
+          <ul>
+            <li>合作模式：ZEMO 提供 100% 自有純電車隊、綠電充電站與 AI 調度系統，並提供即時碳排報告與差旅管理服務，未來也將推出純電共乘。</li>
+            <li>成果：近一年（2025/8–2026/7）累積 2,562 趟純電差旅（近 10 萬公里），較燃油車減碳約 14 公噸，費用較同級計程車節省約 30%。</li>
+          </ul>
+        </div></div>
+        <div class="col-lg-4"><div class="school">
+          <div class="loc">案例 3　ESG 員工減碳專案</div>
+          <h4>日月光 × 一卡通</h4>
+          <div class="slogan">把通勤減碳量，變成可兌換的碳幣</div>
+          <ul>
+            <li>合作模式：日月光透過內部系統串接一卡通 ESG API（符合 ISO 14064 標準）。員工搭乘大眾運輸通勤時，App 自動計算減碳量並轉為「碳幣」，可兌換一卡通綠點或票券。</li>
+            <li>成果：已有 1,695 名員工完成綁定並持續使用，同時實現福利金自動化加值，減少紙本與人工作業。</li>
+          </ul>
+        </div></div>
+      </div>
+      <h3 class="sub mt-5">展場照片</h3>
+      <div class="gallery" data-gallery="moenv"></div>
+    </div>
+  </section>
+
+  <!-- 單元：台北市電腦公會 -->
+  <section class="unit" id="tca" data-title="台北市電腦公會" data-icon="bi-phone">
+    <div class="unit-head c6">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>台北市電腦公會：「APP 出少年！」</h2>
+        <p>學生三天做出 App，在資訊月展場與民眾面對面交流。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="callout">
+        資訊月展場中，由台北市電腦公會（TCA）攜手國立臺灣大學蘋果區域培訓中心、Codex 及臺灣學生創作者社群共同規劃「APP 出少年！」主題展區。
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-md-6"><div class="pillar text-start"><i class="bi bi-calendar-event"></i><h4>活動背景</h4><p>源自 2026 年夏天舉辦的「iOS AI Summer Camp」。學生在 3 天內密集實作，運用 AI 開發工具並參與黑客松（Hackathon）挑戰，最終將創意轉化為 20 組 App 作品。</p></div></div>
+        <div class="col-md-6"><div class="pillar text-start"><i class="bi bi-people"></i><h4>展區特色</h4><p>學生開發者輪番登場，展出已上架或正在籌備上架的 App 成果（例如現場可見的《TalkFit》、《贅字掰掰！》），讓民眾直接體驗作品並與年輕開發者交流。</p></div></div>
+      </div>
+      <h3 class="sub mt-5">展場照片</h3>
+      <div class="gallery" data-gallery="tca"></div>
+    </div>
+  </section>
+
+  <!-- 單元：國家圖書館 -->
+  <section class="unit" id="nclib" data-title="國家圖書館" data-icon="bi-book">
+    <div class="unit-head c7">
+      <div class="container">
+        <span class="tag">展區</span>
+        <h2>國家圖書館：國圖到你家</h2>
+        <p>把圖書館搬進客廳，用電視與行動裝置免費閱讀。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="callout">
+        「國圖到你家」（NCLibTV Services Delivered to Your Home）是國家圖書館推出的數位服務平台。透過開放式網路服務與數位電視互聯，民眾在家打開電視或使用行動裝置，就像走進虛擬圖書館，輕鬆享受閱讀與影音資源。
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-md-6"><div class="school">
+          <div class="loc">主要內容與特色</div>
+          <h4>免費且豐富的官方資源</h4>
+          <ul>
+            <li>內容集結全國各政府機關出版的優質圖書與數位影音，適合親子共讀、學生課外延伸閱讀，或教師作為課堂輔助教材。</li>
+            <li>TV 版電子書：針對大螢幕優化，部分電子書結合 AR、VR 與 3D 互動設計。</li>
+            <li>多元主題：文學、自然生態、科學工藝、觀光旅遊、藝術文化等。</li>
+            <li>數位影音與主題推薦：知識性影音節目、好書推薦與主題策展。</li>
+          </ul>
+        </div></div>
+        <div class="col-md-6"><div class="school">
+          <div class="loc">支援平台與使用方式</div>
+          <h4>三種免費管道</h4>
+          <ul>
+            <li>電視機上盒：透過有線電視機上盒或數位電視機上盒開啟。</li>
+            <li>行動裝置 APP：支援 Android 與 iOS，可掃描海報下方 QR Code 下載「國圖到你家」。</li>
+            <li>網頁版：用電腦或瀏覽器進入，可掃描海報右下角 QR Code。</li>
+          </ul>
+        </div></div>
+      </div>
+      <h3 class="sub mt-5">展場照片</h3>
+      <div class="gallery" data-gallery="nclib"></div>
+    </div>
+  </section>
+
+  <!-- 單元：SEO 與 GEO -->
+  <section class="unit" id="seogeo" data-title="SEO 與 GEO" data-icon="bi-search">
+    <div class="unit-head c8">
+      <div class="container">
+        <span class="tag">講題</span>
+        <h2>SEO 與 GEO</h2>
+        <p>在 AI 時代，被 AI 推薦，和被 Google 排名一樣重要。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="row g-3">
+        <div class="col-md-6"><div class="pillar text-start"><i class="bi bi-google"></i><h4>SEO</h4><p>Google 搜尋的排名。</p></div></div>
+        <div class="col-md-6"><div class="pillar text-start"><i class="bi bi-stars"></i><h4>GEO</h4><p>使用 AI 搜尋時，AI 跑出來推薦的網站。</p></div></div>
+      </div>
+      <div class="callout mt-3">
+        現在大多數人都會使用 AI 來查資料，所以在這個 AI 時代，GEO 變得非常重要。
+      </div>
+      <h3 class="sub mt-5">示意圖</h3>
+      <div class="gallery" data-gallery="seogeo"></div>
+    </div>
+  </section>
+
+  <!-- 單元 6：照片牆 -->
+  <section class="unit" id="album" data-title="照片牆" data-icon="bi-images">
+    <div class="unit-head dark">
+      <div class="container">
+        <span class="tag">全部照片</span>
+        <h2>照片牆</h2>
+        <p>依主題篩選，點選照片可放大瀏覽。</p>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="filters mb-3" id="filters"></div>
+      <div class="gallery" data-gallery="all" id="albumGrid"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 單元切換按鈕 -->
+<div class="pager">
+  <button class="btn btn-pager" id="prevBtn" aria-label="上一單元"><i class="bi bi-chevron-left"></i> <span id="prevLabel"></span></button>
+  <button class="btn btn-pager" id="nextBtn" aria-label="下一單元"><span id="nextLabel"></span> <i class="bi bi-chevron-right"></i></button>
+</div>
+
+<!-- 照片燈箱 -->
+<div class="modal fade" id="lightbox" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark text-white border-0">
+      <div class="modal-header border-0">
+        <span id="lbCaption" class="small"></span>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="關閉"></button>
+      </div>
+      <div class="modal-body text-center p-2">
+        <img id="lbImg" src="" alt="" class="img-fluid lb-img">
+      </div>
+      <div class="modal-footer border-0 justify-content-between">
+        <button class="btn btn-outline-light btn-sm" id="lbPrev"><i class="bi bi-chevron-left"></i> 上一張</button>
+        <a class="btn btn-outline-light btn-sm" id="lbOpen" target="_blank" rel="noopener">在雲端硬碟開啟</a>
+        <button class="btn btn-outline-light btn-sm" id="lbNext">下一張 <i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
